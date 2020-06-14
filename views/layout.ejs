@@ -6,10 +6,34 @@
     <title>
       <%=title%>
     </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" />
     <link rel="stylesheet" href="/css/layout.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <%-style%>
   </head>
   <body>
-    <%-body%> <%-script%>
+    <%-include('_header');%> <%-body%>
+    <script>
+      <% if (flash.success && flash.success.length>0){%>
+        new Noty({
+          theme:'relax',
+          type: 'success',
+          layout: 'topRight',
+          text: '<%=flash.success%>',
+          timeout:1500
+      }).show();
+      <%}%>
+      <% if (flash.error && flash.error.length>0){%>
+      new Noty({
+          theme:'relax',
+          type: 'error',
+          layout: 'topRight',
+          text: '<%=flash.error%>',
+          timeout:1500
+      }).show();
+      <%}%>
+    </script>
+    <%-script%>
   </body>
 </html>

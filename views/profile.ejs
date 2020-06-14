@@ -1,0 +1,22 @@
+<h1>Welcome <%=locals.user.username%></h1>
+
+<h1>Details</h1>
+<h1>Email : <%=locals.user.email%></h1>
+<h1>Password : <%=locals.user.password%></h1>
+<img src="<%=locals.user.imageUrl%>" alt="" height="200px" width="200px" />
+
+<h1>Update info</h1>
+<form action="/update-profile" method="POST" enctype="multipart/form-data">
+  <label for="username">Username </label>
+  <input type="text" name="username" id="username" value="<%=locals.user.username%>" />
+  <br />
+  <label for="password">Password </label>
+  <input type="text" name="password" id="password" value="<%=locals.user.password%>" />
+  <br />
+  <label for="email">Email </label>
+  <input type="text" name="email" id="email" value="<%=locals.user.email%>" />
+  <br />
+  <input type="file" name="image" />
+  <br />
+  <button type="submit">Update profile</button>
+</form>

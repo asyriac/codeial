@@ -1,0 +1,19 @@
+<h1>Welcome <%=locals.user.username%>!</h1>
+
+<form action="/posts/create" id="new-post" method="POST">
+  <input type="text" name="title" />
+  <textarea name="content" id="" cols="30" rows="10"></textarea>
+  <button type="submit">Submit</button>
+</form>
+
+<div id="feed">
+  <ul id="feed-list">
+    <% for (post of posts){%>
+    <li>
+      <a href="/posts/<%=post.id%>"><%=post.title%></a>
+    </li>
+    <%}%>
+  </ul>
+</div>
+
+<script src="/js/feed.js"></script>
